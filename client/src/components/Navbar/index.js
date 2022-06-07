@@ -5,27 +5,29 @@ import SignUpForm from '../SignupForm';
 import LoginForm from '../LoginForm';
 import Auth from '../../utils/auth';
 
+
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+      <Navbar expand='lg'>
         <Container fluid>
-          <Navbar.Brand as={Link} to='/'>
-            Google Books Search
+          <Navbar.Brand >
+            <h1 className="">Houser</h1>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls='navbar' />
+          <div className="justify-content-end">
+          <Navbar.Toggle classname="navtoggle" aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
               <Nav.Link as={Link} to='/'>
-                Search For Books
+                {/* Search For Books */}
               </Nav.Link>
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link as={Link} to='/saved'>
-                    See Your Books
+                    {/* See Your Books */}
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
@@ -34,6 +36,7 @@ const AppNavbar = () => {
               )}
             </Nav>
           </Navbar.Collapse>
+          </div>
         </Container>
       </Navbar>
       {/* set modal data up */}
