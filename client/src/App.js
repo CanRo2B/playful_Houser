@@ -44,9 +44,9 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-          <header>
+          <div>
             <Navbar />
-          </header>
+          </div>
           <div className="container">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -54,7 +54,9 @@ function App() {
               <Route path="/Ownerportal" element={<Ownerportal />} />
             </Routes>
           </div>
-          <Footer />
+          <div>
+            <Footer />
+          </div>
         </div>
       </Router>
     </ApolloProvider>
