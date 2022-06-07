@@ -4,6 +4,7 @@ import { QUERY_ME } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 // import ReactDataGrid from "react-data-grid";
 import { Jumbotron, Container, Button } from 'react-bootstrap';
+import { Panel } from 'react-bootstrap';
 import "../../styles/app.css";
 
 
@@ -25,6 +26,21 @@ const Renterportal = () => {
           <Button bsStyle="primary">Learn more</Button>
         </p>
     </Jumbotron>
+    <Container>
+      <div className="row">
+      <Panel>
+        <Panel.Heading>
+          <Panel.Title componentClass="h3">Panel heading with a title</Panel.Title>
+        </Panel.Heading>
+        <div className="panel-photo">
+          <Image src={thumbPhotoUrl} responsive className="img-responsive center-block"/>
+         </div>
+        <Panel.Body>Property Content</Panel.Body>
+      </Panel>
+      </div>
+        
+    
+    </Container>
       </>
 )
 };
