@@ -1,27 +1,165 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_USER = gql`
-  query User {
-    User {
+export const QUERY_USERS = gql`
+  query users {
+    users {
       _id
       username
       email
-      password
       landlord
-      contact
-      properties 
+      contact {
+        firstName
+        lastName
+        street
+        city
+        state
+        zipcode
+        phone1
+        phone2
+      }
+      properties {
+        _id
+        nickname
+        street
+        city
+        state
+        zipcode
+        rent
+        image
+        due
+      }
+    }
+  }
+`;
+
+export const QUERY_USER = gql`
+  query user($userId: ID!) {
+    users {
+      _id
+      username
+      email
+      landlord
+      contact {
+        firstName
+        lastName
+        street
+        city
+        state
+        zipcode
+        phone1
+        phone2
+      }
+      properties {
+        _id
+        nickname
+        street
+        city
+        state
+        zipcode
+        rent
+        image
+        due
+        tenants {
+          firstName
+          lastName
+          street
+          city
+          state
+          zipcode
+          phone1
+          phone2
+        }
+      }
+    }
+  }
+`;
+
+export const QUERY_PROPERTIES = gql`
+  query properties {
+    _id
+    nickname
+    street
+    city
+    state
+    zipcode
+    rent
+    image
+    due
+    tenants {
+      firstName
+      lastName
+      street
+      city
+      state
+      zipcode
+      phone1
+      phone2
     }
   }
 `;
 
 export const QUERY_PROPERTY = gql`
-  query property($_id: String) {
-    property(_id: $_id) {
+  query property($propertyId: ID!) {
+    _id
+    nickname
+    street
+    city
+    state
+    zipcode
+    rent
+    image
+    due
+    tenants {
+      firstName
+      lastName
+      street
+      city
+      state
+      zipcode
+      phone1
+      phone2
+    }
+  }
+`;
+
+export const QUERY_ME = gql`
+  query me {
+    me {
       _id
-      nickname
-      rent
-      image
-      due
+      username
+      email
+      landlord
+      contact {
+        firstName
+        lastName
+        street
+        city
+        state
+        zipcode
+        phone1
+        phone2
+      }
+      properties {
+        _id
+        nickname
+        street
+        city
+        state
+        zipcode
+        rent
+        image
+        due
+        tenants {
+          firstName
+          lastName
+          street
+          city
+          state
+          zipcode
+          phone1
+          phone2
+        }
+      }
     }
   }
 `;
