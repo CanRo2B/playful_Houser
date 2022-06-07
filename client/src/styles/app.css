@@ -95,3 +95,12 @@ footer {
     justify-content: space-between;
     display: inline;
 }
+.bottom {
+    color: var(--Green);
+    font-size: 20pt;
+    font-weight: 100;
+}
+
+.p-3 {
+    color: var(--grey)
+}

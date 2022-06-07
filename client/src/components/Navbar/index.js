@@ -15,12 +15,11 @@ const AppNavbar = () => {
       <Navbar expand='lg'>
         <Container fluid>
           <Navbar.Brand >
-            <h1 className="">Houser</h1>
+           Houser
           </Navbar.Brand>
-          <div className="justify-content-end">
-          <Navbar.Toggle classname="navtoggle" aria-controls='navbar' />
+          <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
-            <Nav className='ml-auto'>
+            <Nav className='ms-auto'>
               <Nav.Link as={Link} to='/'>
                 {/* Search For Books */}
               </Nav.Link>
@@ -36,7 +35,6 @@ const AppNavbar = () => {
               )}
             </Nav>
           </Navbar.Collapse>
-          </div>
         </Container>
       </Navbar>
       {/* set modal data up */}
