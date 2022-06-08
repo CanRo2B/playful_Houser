@@ -7,6 +7,7 @@ import "../../styles/app.css";
 import Assets1 from '../../assets/digital-marketing-agency-ntwrk-g39p1kDjvSY-unsplash.jpg'
 import PropertyCard from "../PropertyCard";
 import { QUERY_ME } from "../../utils/queries";
+import { useResolvedPath } from "react-router-dom";
 
 
 const Renterportal = () => {
@@ -14,34 +15,37 @@ const Renterportal = () => {
    
     const userData = data?.me || [];
 
+  // const {data} = useQuery(QUERY_USER);
+  // let user;
+  // if (data) {
+  //   user= data.user;
+  // }
+
     return ( 
       // <div>
       // {user ? (
       <>
+  <Container>
     <div fluid className="m-3">
       <h1>Hello,  {userData.contact.firstName} </h1>
-
-      <h1>Hello,  George </h1>        
         <p>
-           Listed below is the rental property.
-        </p>
-        <p>
-          <Button bsStyle="primary">Pay Rent</Button>
+          <Button bsStyle="primary">Edit Contact Info</Button>
         </p>
     </div>
+  </Container>
    
-    <Container className= "">
+  <Container className= "">
     <CardGroup className="display-flex">
       {/* Identified by the tenant, the property they are attached to. */}
-        <PropertyCard />
+       <PropertyCard />
        {/* Property manager information */}
         <Card className="col-5 p-4" key="" border='dark'>
                 <Card.Body>
                   <Card.Title>Owner Info</Card.Title>
-                  <p className='small'>Rent: 1200</p>
-                  <Card.Text>Rent Due</Card.Text>
+                  <p className='small'>{userData.properties.due}</p>
+                  <Card.Text>{userData.properties.rent}</Card.Text>
                   <Button className='btn-block btn-danger' onClick= "">
-                    Delete this Book!
+                    Contact Owner
                   </Button>
                 </Card.Body>
               </Card>

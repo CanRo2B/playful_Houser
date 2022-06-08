@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import Properties from "../Properties";
-import { Jumbotron, Container, CardGroup, Button } from 'react-bootstrap';
+import { Container, CardGroup, Button } from 'react-bootstrap';
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../../utils/queries";
 import { QUERY_ME } from "../../utils/queries";
 import PropertyCard from "../PropertyCard";
-// import Panel from 'react-bootstrap/Panel';
 import "../../styles/app.css";
 
 
@@ -27,8 +26,12 @@ const Ownerportal = () => {
       <Container>
         <div fluid className="m-3">
           <h1>Hello, {userData.contact.firstName}</h1>
+          <p>
+            <Button bsStyle="primary">Edit Contact Info</Button>
+          </p>
         </div>
       </Container>
+
       <Container>
         <h2> Properties Listed
           {userData.property.length
@@ -41,7 +44,9 @@ const Ownerportal = () => {
              <PropertyCard />
             );
           })}
+
         </CardGroup>   
+
       </Container>
     </div>
     //   ) : null
