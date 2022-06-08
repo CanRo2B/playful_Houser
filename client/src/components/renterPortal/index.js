@@ -1,13 +1,12 @@
 import React from "react";
 import { useQuery } from '@apollo/client';
 import { QUERY_USER } from '../../utils/queries';
-// import ReactDataGrid from "react-data-grid";
-import { Jumbotron, Card, CardGroup, Container, Button } from 'react-bootstrap';
+import { Card, CardGroup, Container, Button } from 'react-bootstrap';
 import "../../styles/app.css";
 import Assets1 from '../../assets/digital-marketing-agency-ntwrk-g39p1kDjvSY-unsplash.jpg'
 import PropertyCard from "../PropertyCard";
 import { QUERY_ME } from "../../utils/queries";
-import { useResolvedPath } from "react-router-dom";
+
 
 
 const Renterportal = () => {

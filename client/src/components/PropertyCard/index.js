@@ -17,7 +17,7 @@ const PropertyCard = () => {
     return ( 
 
 <Card className="col-5 p-4" key="" border='dark'>
-<Card.Img src={Assets1} className= "rentalimage" alt="" variant='top' /> 
+  <Card.Img src={Assets1} className= "rentalimage" alt="" variant='top' /> 
         <Card.Body>
           <Card.Title>{propertyData.nickname}</Card.Title>
           <p className='small'>{propertyData.due}</p>
@@ -25,7 +25,7 @@ const PropertyCard = () => {
           <Card.Text>{propertyData.street}</Card.Text>
           <Card.Text>{propertyData.state}, {propertyData.state} {propertyData.zip}</Card.Text>
           <Button className='btn-block btn-danger' onClick= "">
-            Delete this property
+            I don't know what to put here
           </Button>
         </Card.Body>
       </Card>
