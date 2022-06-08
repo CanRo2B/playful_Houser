@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import Properties from "../Properties";
-import { Jumbotron, Container, Button } from 'react-bootstrap';
+import { Jumbotron, Container, CardGroup, Button } from 'react-bootstrap';
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../../utils/queries";
+import { QUERY_ME } from "../../utils/queries";
+import PropertyCard from "../PropertyCard";
 // import Panel from 'react-bootstrap/Panel';
 import "../../styles/app.css";
 
@@ -15,18 +17,36 @@ const Ownerportal = () => {
   //   user= data.user;
   // }
 
+  const { loading, data} = useQuery(QUERY_ME)
+   
+  const userData = data?.me || [];
+
+
   return (
     <div>
-      <div fluid className="m-3">
-          <h1>Hello, George</h1>
-            <p>
-               Listed below is your rental properties.
-            </p>
-      </div>
-      <div>
-        <Properties />
-      </div>
+      <Container>
+        <div fluid className="m-3">
+          <h1>Hello, {userData.contact.firstName}</h1>
+        </div>
+      </Container>
+      <Container>
+        <h2> Properties Listed
+          {userData.property.length
+            ? `Viewing ${userData.property.length} saved ${userData.property.length === 1 ? 'property' : 'property'}:`
+            : 'You have no properties listed!'}
+        </h2>
+        <CardGroup className="flex-row">
+          {userData.property.map((property) => {
+            return (
+             <PropertyCard />
+            );
+          })}
+        </CardGroup>   
+      </Container>
     </div>
+    //   ) : null
+    // }
+    // </div>
   );
 };
 

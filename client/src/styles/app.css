@@ -41,33 +41,14 @@ body {
     transition: opacity .2s ease-in;
     margin:0;
     padding:0 */
-
-    /* position: relative;
-    min-height: 100%;
-    height: fit-content;
-    width: 100%;
-    background: url(../assets/blake-wheeler-zBHU08hdzhY-unsplash.jpg);
-    background-size: cover;
-    animation: panning 40s infinite linear;
-    margin: 0; */
-}
-#anime {
-  background-color: var(--background-color);
-  width: 100vw;
-  height: 100vh;
-  /* height: fit-content;
-    background-image: url();
-    background-size: cover;
-    animation: backgroundScroll 40s linear infinite;
-    opacity: 1;
-    transition: opacity .2s ease-in;
-    margin:0;
-    padding:0 */
-    position: relative;
-    background: url(../assets/blake-wheeler-zBHU08hdzhY-unsplash.jpg);
-    background-size: cover;
-    animation: panning 40s infinite linear;
-    margin: 0;
+  /* position: relative;
+  min-height: 100%;
+  height: fit-content;
+  width: 100%;
+  background: url(../assets/blake-wheeler-zBHU08hdzhY-unsplash.jpg);
+  background-size: cover;
+  animation: panning 40s infinite linear;
+  margin: 0; */
 }
 
 main {
@@ -78,6 +59,17 @@ main {
   align-items: center;
   margin: 0;
   padding: 0;
+}
+
+#anime {
+  background-color: var(--background-color);
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background: url(../assets/blake-wheeler-zBHU08hdzhY-unsplash.jpg);
+  background-size: cover;
+  animation: panning 40s infinite linear;
+  margin: 0;
 }
 
 html,
@@ -103,8 +95,13 @@ footer {
   padding: 3rem;
   border: 3px solid #ccc;
   border-radius: 2px;
-
   -webkit-font-smoothing: antialiased;
+}
+
+.navlinks {
+margin-left: 85rem;
+justify-content: end;
+text-decoration: none;
 }
 
 .navdisplay {
@@ -114,11 +111,10 @@ footer {
   z-index: 8;
 }
 
-.rentalimage {
-  height: 18rem;
-  width: 18rem;
-
+.navlogo {
+  background: url(../assets/logotrans.png);
 }
+
 .bottom {
   color: var(--Green);
   font-size: 20pt;

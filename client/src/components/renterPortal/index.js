@@ -1,24 +1,27 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import { QUERY_ME } from '../../utils/queries';
-import { useQuery, useReactiveVar } from '@apollo/client';
+import React from "react";
+import { useQuery } from '@apollo/client';
+import { QUERY_USER } from '../../utils/queries';
 // import ReactDataGrid from "react-data-grid";
-import { Jumbotron, Container, Button } from 'react-bootstrap';
-// import Panel from 'react-bootstrap/Panel';
+import { Jumbotron, Card, CardGroup, Container, Button } from 'react-bootstrap';
 import "../../styles/app.css";
 import Assets1 from '../../assets/digital-marketing-agency-ntwrk-g39p1kDjvSY-unsplash.jpg'
-
+import PropertyCard from "../PropertyCard";
+import { QUERY_ME } from "../../utils/queries";
 
 
 const Renterportal = () => {
-    // const { loading, data} = useQuery(QUERY_ME)
+    const { loading, data} = useQuery(QUERY_ME)
+   
+    const userData = data?.me || [];
 
-    // const useData = data?.me || [];
-
-    return (
+    return ( 
+      // <div>
+      // {user ? (
       <>
     <div fluid className="m-3">
-      <h1>Hello, George</h1>
+      <h1>Hello,  {userData.contact.firstName} </h1>
+
+      <h1>Hello,  George </h1>        
         <p>
            Listed below is the rental property.
         </p>
@@ -26,8 +29,36 @@ const Renterportal = () => {
           <Button bsStyle="primary">Pay Rent</Button>
         </p>
     </div>
+   
+    <Container className= "">
+    <CardGroup className="display-flex">
+      {/* Identified by the tenant, the property they are attached to. */}
+        <PropertyCard />
+       {/* Property manager information */}
+        <Card className="col-5 p-4" key="" border='dark'>
+                <Card.Body>
+                  <Card.Title>Owner Info</Card.Title>
+                  <p className='small'>Rent: 1200</p>
+                  <Card.Text>Rent Due</Card.Text>
+                  <Button className='btn-block btn-danger' onClick= "">
+                    Delete this Book!
+                  </Button>
+                </Card.Body>
+              </Card>
+        </CardGroup>
+    </Container>
     <Container>
-    <div className="card flex-row flex-wrap">
+    <a href="#" className="btn btn-primary">Pay Rent</a>
+    </Container>
+      </>
+    //   ) : null
+    // }
+    // </div>
+)
+};
+export default Renterportal;
+
+    {/* <div className="card flex-column flex-wrap">
         <div className="card-header border-0">
             <img className="rentalimage" src={Assets1} alt="Rental placeholder image"/>
         </div>
@@ -42,12 +73,18 @@ const Renterportal = () => {
             Rent Amount
         </div>
     </div>
-    </Container>
-    <Container>
-    <a href="#" className="btn btn-primary">Pay Rent</a>
-    </Container>
-      </>
-)
-};
-export default Renterportal;
-
+    <div className="card flex-column flex-wrap">
+        <div className="card-header border-0">
+            
+        </div>
+        <div className="card-block px-2">
+            <h4 className="card-title">Title</h4>
+            <p className="card-text">Street</p>
+            <p classname="card-text">City, State Zipcode</p>
+            <a href="mailto:canrob0522@gmail.com" className="btn btn-primary">Contact Owner</a>
+        </div>
+        <div className=""></div>
+        <div className="card-footer text-muted">
+            Rent Amount
+        </div>
+    </div> */}
