@@ -9,9 +9,9 @@ const Home = () => {
   // const profiles = data?. || [];
 
   return (
-    <main>
-      <div className="flex-row justify-center">
-        <div className="">
+    <main className="flex-column">
+      <div id="anime" className="flex-row justify-center">
+        <div className="joy">
           <div className="housertitle">Houser</div>
         </div>
       </div>

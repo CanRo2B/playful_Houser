@@ -41,10 +41,29 @@ body {
     transition: opacity .2s ease-in;
     margin:0;
     padding:0 */
-    position: relative;
+
+    /* position: relative;
     min-height: 100%;
     height: fit-content;
     width: 100%;
+    background: url(../assets/blake-wheeler-zBHU08hdzhY-unsplash.jpg);
+    background-size: cover;
+    animation: panning 40s infinite linear;
+    margin: 0; */
+}
+#anime {
+  background-color: var(--background-color);
+  width: 100vw;
+  height: 100vh;
+  /* height: fit-content;
+    background-image: url();
+    background-size: cover;
+    animation: backgroundScroll 40s linear infinite;
+    opacity: 1;
+    transition: opacity .2s ease-in;
+    margin:0;
+    padding:0 */
+    position: relative;
     background: url(../assets/blake-wheeler-zBHU08hdzhY-unsplash.jpg);
     background-size: cover;
     animation: panning 40s infinite linear;
@@ -93,6 +112,12 @@ footer {
   justify-content: space-between;
   display: inline;
   z-index: 8;
+}
+
+.rentalimage {
+  height: 18rem;
+  width: 18rem;
+
 }
 .bottom {
   color: var(--Green);
