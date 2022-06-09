@@ -136,6 +136,19 @@ text-decoration: none;
   color: var(--grey);
 }
 
+.renterbox {
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.firstName{
+  background-color: var(--Green);
+  width: 100vw;
+  padding: .75rem 1rem;
+  margin-left: 0;
+  margin-right: 3;
+}
+
 .rentalbtn {
   background-color: #344964 !important;
 }
@@ -153,9 +166,18 @@ text-decoration: none;
 } */
 
 .affect {
-  /* border: 5px #344964; */
-  /* box-shadow: 5px 5px 5px #344964; */
+  border-top: 1pt solid #344964;
+  border-left: 1pt solid #344964;
+  border-bottom: 1pt solid #344964;
+  border-right: 1pt solid #344964;
   box-shadow: 3px 5px 5px #737171;
   /* transition: all 0.2s ease-in-out; */
   margin: 0.5rem;
+}
+
+.pay {
+  font-size: 20pt;
+  background-color: #344964 !important;
+  color: antiquewhite;
+  padding: .5rem 2rem;
 }

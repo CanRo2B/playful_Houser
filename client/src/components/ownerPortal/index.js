@@ -38,15 +38,31 @@ const Ownerportal = () => {
 
       <Container>
         <h2> Properties Listed
-          {userData.property.length
+          {/* {userData.property.length
             ? `Viewing ${userData.property.length} saved ${userData.property.length === 1 ? 'property' : 'property'}:`
-            : 'You have no properties listed!'}
+            : 'You have no properties listed!'} */}
         </h2>
         <CardGroup className="flex-row">
           {userData.property.map((property) => {
-            return (
-             <PropertyCard />
-            );
+            // return (
+            //  <PropertyCard />
+            // );
+            return ( 
+
+              <Card className="col-5 p-4 affect" key="" border='dark'>
+                <Card.Img src={Assets1} className= "rentalimage" alt="Rental Image" variant='top' /> 
+                  <Card.Body>
+                     <Card.Title>{propertyData.nickname}</Card.Title>
+                  <p className='small'>{propertyData.due}</p>
+                    <Card.Text>{propertyData.rent}</Card.Text>
+                   <Card.Text>{propertyData.street}</Card.Text>
+                    <Card.Text>{propertyData.state}, {propertyData.state}  {propertyData.zipcode}</Card.Text>
+                   <Button className='btn-block btn-danger' onClick= "">
+                     I don't know what to put here
+                  </Button>
+                  </Card.Body>
+               </Card>
+           ) 
           })}
 
         </CardGroup>   

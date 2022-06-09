@@ -49,6 +49,22 @@ const Renterportal = (props) => {
       {/* Identified by the tenant, the property they are attached to. */}
        <PropertyCard />
        {/* Property manager information */}
+
+       <Card className="col-5 p-4 m-3 affect" key="" border='dark'>
+            <Card.Img src={Assets1} className= "rentalimage" alt="Rental Image" variant='top' /> 
+              <Card.Body>
+                <Card.Title>{userData.properties[0].nickname}</Card.Title>
+                <p className='small'>{userData.properties[0].due}</p>
+                <Card.Text>Rent Amount: ${userData.properties[0].rent}</Card.Text>
+                <Card.Text>{userData.properties[0].street}</Card.Text>
+                <Card.Text>{userData.properties[0].state}, {userData.properties[0].state} {userData.properties[0].zipcode}</Card.Text>
+                <Button className='btn-block rentalbtn'>
+                  I don't know what to put here
+                </Button>
+                  {/* {isTenant ?  <a href="/stripe">Pay Rent</a> : <a href="property/:propertyId">Property/Tenant Info</a>} */}
+              </Card.Body>
+          </Card>
+          
         <Card className="col-5 p-4 m-3 affect" key="" border='dark'>
                 <Card.Body>
                   <Card.Title>Owner Info</Card.Title>
@@ -64,7 +80,7 @@ const Renterportal = (props) => {
     </Container>
 
     <Container>
-    <a href="#" className="btn btn-primary">Pay Rent</a>
+    <a href="#" className="btn btn-primary pay">Pay Rent</a>
     </Container>
     {/* Modal for edit contact info*/}
 
