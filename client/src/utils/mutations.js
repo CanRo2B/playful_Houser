@@ -54,6 +54,23 @@ export const ADD_PROPERTY = gql`
   }
 `;
 
+export const SAVE_PROPERTY = gql`
+  mutation saveProperty($input: SavePropertyInput) {
+    saveProperty(input: $input) {
+      _id
+      nickname
+      street
+      city
+      state
+      zipcode
+      rent
+      image
+      due
+      tenants
+    }
+  }
+`;
+
 //ADD_CONTACT
 export const ADD_CONTACT = gql`
   mutation addContact($input: AddContactInput) {

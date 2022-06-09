@@ -9,34 +9,29 @@ import Assets1 from '../../assets/digital-marketing-agency-ntwrk-g39p1kDjvSY-uns
 
 
 
-const PropertyCard = (props) => {
+const TenantCard = () => {
     const { loading, data} = useQuery(QUERY_PROPERTY)
     
     const propertyData = data?.properties || {};
    
     return ( 
-<>
-    {loading ? (
-          <div>Loading...</div>
-        ) : (
+
 <Card className="col-5 p-4 m-3 effect" key="" border='dark'>
   <Card.Img src={Assets1} className= "rentalimage" alt="" variant='top' /> 
         <Card.Body>
-          <Card.Title>{propertyData.nickname}</Card.Title>
+          <Card.Title>{propertyData.tenants.firstName} {propertyData.tenants.lastName}</Card.Title>
           <p className='small'>{propertyData.due}</p>
           <Card.Text>{propertyData.rent}</Card.Text>
-          <Card.Text>{propertyData.street}</Card.Text>
-          <Card.Text>{propertyData.state}, {propertyData.state} {propertyData.zip}</Card.Text>
+          <Card.Text>{propertyData.tenants.street}</Card.Text>
+          <Card.Text>{propertyData.tenants.state}, {propertyData.state} {propertyData.tenants.zip}</Card.Text>
+          <Card.Text>{propertyData.tenants.phone1}</Card.Text><Card.Text>{propertyData.tenants.phone2}</Card.Text>
           <Button className='btn-block rentalbtn' onClick= "">
-            I don't know what to put here
+           Change Tenant Info
           </Button>
         </Card.Body>
       </Card>
-      )
-    }
-    </>
 ) 
 }
 
-export default PropertyCard;
+export default TenantCard;
 

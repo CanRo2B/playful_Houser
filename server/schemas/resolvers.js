@@ -18,6 +18,14 @@ const resolvers = {
         return User.findOne({ _id: context.user._id }).populate('properties');
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+
+    properties: async () => {
+      return Property.find().populate('tenants');
+    },
+
+    property: async (parent, { propertyId }) => {
+      return Property.findOne({ _id: propertyId }).populate('tenants');
     }
   },
 
@@ -45,16 +53,28 @@ const resolvers = {
 
     // Add a third argument to the resolver to access data in our `context`
     addProperty: async (parent, { input }, context) => {
-      const property = await Property.create(...input);
+      input.manager = context.user._id;
+      const property = await Property.create({ ...input });
       if (context.user) {
-        return User.findByIdAndUpdate(
+        User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { properties: property._id } },
-          { new: true, runValidators: true }
+          { $addToSet: { properties: property._id } }
         );
+        return property;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    
+    // saveProperty: async (parent, { _id }, context) => {
+    //   const save = await User.findOneAndUpdate(
+    //     { _id },
+    //     { $inc: { [`Book ${title } saved`]: 1 } },
+    //     { new: true }
+    //   );
+    //   return save;
+    //   // }
+    //   // throw new AuthenticationError('You need to be logged in!');
+    // },
 
     addContact: async (parent, { input }, context) => {
       if (context.user) {
@@ -88,15 +108,16 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    addTenant: async (parent, { propertyId }, context) => {
+    addTenant: async (parent, { propertyId, username }, context) => {
       if (context.user) {
+        const tenant = await User.findOne({ username: username });
         return Property.findOneAndUpdate(
           {
             _id: propertyId
           },
-          { $addToSet: { tenants: context.user._id } },
+          { $addToSet: { tenants: tenant._id } },
           { new: true }
-        );
+        ).populate('tenants');
       }
       throw new AuthenticationError('You need to be logged in!');
     },

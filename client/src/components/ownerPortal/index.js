@@ -16,21 +16,25 @@ const Ownerportal = () => {
   //   user= data.user;
   // }
 
-  const { loading, data} = useQuery(QUERY_ME)
+  const { loading, data} = useQuery(QUERY_ME);
    
   const userData = data?.me || [];
 
 
   return (
+    <>
+    {loading ? (
+          <div>Loading...</div>
+        ) : (
     <div>
-      <Container>
-        <div fluid className="m-3">
+     
+        <div fluid className="m-3 firstName">
           <h1>Hello, {userData.contact.firstName}</h1>
           <p>
-            <Button bsStyle="primary">Edit Contact Info</Button>
+            <Button bsstyle="primary" className="rentalbtn">Edit Contact Info</Button>
           </p>
         </div>
-      </Container>
+  
 
       <Container>
         <h2> Properties Listed
@@ -52,6 +56,9 @@ const Ownerportal = () => {
     //   ) : null
     // }
     // </div>
+    )
+  }
+  </>
   );
 };
 

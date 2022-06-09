@@ -98,6 +98,17 @@ footer {
   -webkit-font-smoothing: antialiased;
 }
 
+.renterbox {
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.firstName{
+  background-color: var(--Green);
+  width: 100vw;
+  padding: .75rem 1rem;
+  margin-left: 0;
+}
 .navlinks {
 margin-left: 85rem;
 justify-content: end;
@@ -123,4 +134,28 @@ text-decoration: none;
 
 .p-3 {
   color: var(--grey);
+}
+
+.rentalbtn {
+  background-color: #344964 !important;
+}
+
+.effect {
+  /* border: 2px #344964; */
+  box-shadow: 3px 5px 5px #737171;
+  /* transition: all 0.2s ease-in-out; */
+  margin: 0.5rem;
+}
+/* .effect:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  padding: 1.4rem;
+} */
+
+.affect {
+  /* border: 5px #344964; */
+  /* box-shadow: 5px 5px 5px #344964; */
+  box-shadow: 3px 5px 5px #737171;
+  /* transition: all 0.2s ease-in-out; */
+  margin: 0.5rem;
 }
